@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMS</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px;
+    }
+
+    h1 {
+        margin-bottom: 25px;
+        color: #333;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    table {
+        width: 900px;
+        border-collapse: collapse;
+        background: #ffffffdd;
+        backdrop-filter: blur(6px);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 14px 15px;
+        font-size: 15px;
+        color: #333;
+        text-align: center;
+        border-bottom: 1px solid #e6e6e6;
+    }
+
+    th {
+        background: #007bff;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    tr:hover {
+        background-color: #f1f8ff;
+    }
+
+    /* Action buttons */
+    .action-btn {
+        padding: 8px 14px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.2s ease;
+        color: white;
+        margin: 2px;
+    }
+
+    .edit-btn {
+        background: #28a745;
+    }
+    .edit-btn:hover {
+        background: #1f7e34;
+    }
+
+    .delete-btn {
+        background: #dc3545;
+    }
+    .delete-btn:hover {
+        background: #b02a37;
+    }
+
+    button.back {
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button.back:hover {
+        background-color: #0056d6;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+</head>
+<body>
+	<div>
+		<h1>Manage Employee Records</h1>
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Mobile</th>
+				<th>Salary</th>
+				<th>Department</th>
+				<th>DOJ</th>
+				<th>Actions</th>
+			</tr>
+
+			<tr th:each="emp:${list}">
+				<td th:text="${emp.name}"></td>
+				<td th:text="${emp.mobile}"></td>
+				<td th:text="${emp.salary}"></td>
+				<td th:text="${emp.department}"></td>
+				<td th:text="${emp.doj}"></td>
+				<td>
+					<a th:href="'/edit/'+${emp.id}"><button class="action-btn edit-btn">Edit</button></a>
+					<a th:href="'/delete/'+${emp.id}"><button class="action-btn delete-btn">Delete</button></a>
+				</td>
+			</tr>
+		</table>
+
+		<div style="text-align:center;">
+			<button class="back" onclick="window.location.href='/'">Back</button>
+		</div>
+	</div>
+
+<script th:if="${message}">
+		alert("[[${message}]]");
+	</script>
+</body>
+</html>

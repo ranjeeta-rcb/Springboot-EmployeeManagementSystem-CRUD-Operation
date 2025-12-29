@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMS</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    form {
+        width: 100%;
+        max-width: 500px;
+        margin-bottom: 20px;
+    }
+
+    fieldset {
+        border: none;
+        background: #ffffffdd;
+        padding: 20px 30px;
+        border-radius: 16px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(6px);
+    }
+
+    legend {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        padding: 0 10px;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    td {
+        padding: 10px 0;
+        font-size: 15px;
+        color: #444;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        outline: none;
+        transition: 0.25s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+        background-color: #0056d6;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+
+	<div>
+		<h1>Add Employee Record</h1>
+
+		<form action="/add" method="post">
+		<fieldset>
+
+			<table>
+				<tr>
+					<td><label for="name">Name</label></td>
+					<td><input type="text" name="name" id="name" placeholder="Enter Name"></td>
+				</tr>
+
+				<tr>
+					<td><label for="mobile">Mobile</label></td>
+					<td><input type="number" name="mobile" id="mobile" placeholder="Enter Mobile Number"></td>
+				</tr>
+
+				<tr>
+					<td><label for="salary">Salary</label></td>
+					<td><input type="number" name="salary" id="salary" placeholder="Enter Salary"></td>
+				</tr>
+
+				<tr>
+					<td><label for="dept">Department</label></td>
+					<td><input type="text" name="department" id="dept" placeholder="Enter Department"></td>
+				</tr>
+
+				<tr>
+					<td><label for="doj">DOJ</label></td>
+					<td><input type="date" name="doj" id="doj"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit">Add</button>
+					</td>
+				</tr>
+			</table>
+
+		</fieldset>
+		</form>
+
+		<a href="/" class="back-btn"><button>Back</button></a>
+	</div>
+
+</body>
+</html>
